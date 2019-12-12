@@ -10,10 +10,14 @@ pool:
   vmImage: 'ubuntu-latest'
 
 steps:
-- script: echo Hello, world!
-  displayName: 'Run a one-line script'
+- task: Docker@2
+  displayName: 'Docker build identitidock and push'
+  inputs:
+    containerRegistry: 'DockerHub_daredevil192'
+    repository: 'identidock'
+    command: 'buildAndPush'
+    Dockerfile: '**/Dockerfile'    
+    tags: |
+      latest
+      $(Build.BuildId)
 
-- script: |
-    echo Add other tasks to build, test, and deploy your project.
-    echo See https://aka.ms/yaml
-  displayName: 'Run a multi-line script'
