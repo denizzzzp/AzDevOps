@@ -7,10 +7,10 @@ services:
     environment:
       ENV: DEV 
     volumes:
-      - ./app:/app
+    - ./app:/app
     links:
-      - dnmonster
-      - redis
+    - dnmonster
+    - redis
 
   dnmonster.api:
     image: amouat/dnmonster:1.0
