@@ -8,9 +8,7 @@ services:
       replicas: 1
     environment:
       ENV: DEV 
-    links:
-      - dnmonster
-      - redis
+
 
   dnmonster:
     image: amouat/dnmonster:1.0
