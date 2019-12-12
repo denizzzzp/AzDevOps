@@ -1,6 +1,6 @@
 version: '3'
 services:
-  identidock:
+  identidock.api:
     image: daredevil192/identidock:latest
       ports:
       - "5000:5000"
@@ -12,8 +12,8 @@ services:
       - dnmonster
       - redis
 
-  dnmonster:
+  dnmonster.api:
     image: amouat/dnmonster:1.0
 
-  redis:
+  redis.api:
     image: redis:3.0
