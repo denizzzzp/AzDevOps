@@ -3,14 +3,12 @@ services:
   identidock:
     image: daredevil192/identidock:latest
       ports:
-      - "5000:5000"
+        - "5000:5000"
     environment:
       ENV: DEV 
-    volumes:
-    - ./app:/app
     links:
-    - dnmonster
-    - redis
+      - dnmonster
+      - redis
 
   dnmonster:
     image: amouat/dnmonster:1.0
