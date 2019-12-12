@@ -1,4 +1,4 @@
-version: '3'
+version: "3"
 services:
   identidock:
     image: daredevil192/identidock:latest
@@ -8,7 +8,9 @@ services:
       replicas: 1
     environment:
       ENV: DEV 
-
+    links:
+      - dnmonster
+      - redis
 
   dnmonster:
     image: amouat/dnmonster:1.0
