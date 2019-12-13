@@ -9,12 +9,21 @@ trigger:
 pool:
   vmImage: 'ubuntu-latest'
 
+variables:
+  imageName: 'denizzzzp/identidock'
+
 steps:
+
+- task: Docker@2
+  displayName: Docker HUB login
+  inputs:
+    containerRegistry: 'denizzzzp-hub'
+    command: 'login'
 
 - task: Docker@2
   inputs:
     containerRegistry: 'denizzzzp-hub'
-    repository: 'denizzzzp/identidock'
+    repository: '$(imageName)'
     command: 'buildAndPush'
     Dockerfile: '**/Dockerfile'
     tags: |
