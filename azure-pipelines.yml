@@ -14,7 +14,7 @@ steps:
   displayName: 'Docker build identitidock and push'
   inputs:
     containerRegistry: 'DockerHub_daredevil192'
-    repository: 'daredevil192/identidock'
+    repository: 'denizzzzp/identidock'
     command: 'buildAndPush'
     Dockerfile: '**/Dockerfile'    
     tags: |
