@@ -10,7 +10,7 @@ pool:
   vmImage: 'ubuntu-latest'
 
 variables:
-  imageName: 'denizzzzp/identidock'
+  imageName: 'denizzzzp/app-fabric'
 
 steps:
 
