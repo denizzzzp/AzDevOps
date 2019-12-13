@@ -10,14 +10,13 @@ pool:
   vmImage: 'ubuntu-latest'
 
 steps:
+
 - task: Docker@2
-  displayName: 'Docker build identitidock and push'
   inputs:
     containerRegistry: 'denizzzzp-hub'
     repository: 'denizzzzp/identidock'
     command: 'buildAndPush'
-    Dockerfile: '**/Dockerfile'    
+    Dockerfile: '**/Dockerfile'
     tags: |
       latest
       $(Build.BuildId)
-
