@@ -21,7 +21,7 @@ def mainpage():
     name_hash = hashlib.sha256(salted_name.encode()).hexdigest()
     header = '<html><head><title>Identidock</title></head><body>'
     body = '''<form method="POST">
-              Hello <input type="text" name="name" value="{0}">
+              <b>Hello</b> <input type="text" name="name" value="{0}">
               <input type="submit" value="submit">
               </form>
               <p>You look like a:
