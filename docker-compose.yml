@@ -1,7 +1,7 @@
 version: "3"
 services:
   identidock:
-    image: denizzzzp/app-fabric:latest
+    image: denizzzzp/app-fabric:$(RELEASE_ARTIFACTS__DENIZZZZP_AZDEVOPS_BUILDID)
     pull: true
     ports:
     - "80:5000"
