@@ -21,6 +21,7 @@ steps:
     command: 'login'
 
 - task: Docker@2
+  displayName: Docker build
   inputs:
     containerRegistry: 'denizzzzp-hub'
     repository: '$(imageName)'
@@ -29,3 +30,34 @@ steps:
     tags: |
       latest
       $(Build.BuildId)
+
+- task: CmdLine@2
+  displayName: create file docker-compose.yml
+  inputs:
+    script: |
+      cat <<EOF >docker-compose.yml
+      version: "3"
+      services:
+        identidock:
+          image: denizzzzp/app-fabric:$(Build.BuildId)
+          pull: true
+          ports:
+          - "80:5000"
+          environment:
+            ENV: DEV
+      
+        dnmonster:
+          image: amouat/dnmonster:1.0
+          ports:
+          - "8080:8080"
+      
+        redis:
+          image: redis:3.0
+          ports:
+          - "6379:6379"
+      EOF
+
+- task: CmdLine@2
+  displayName: Print file docker-compose.yml
+  inputs:
+    script: 'cat docker-compose.yml'
