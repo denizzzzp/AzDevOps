@@ -62,9 +62,9 @@ steps:
   inputs:
     script: 'cat docker-compose.yml'
 
-- task: PublishPipelineArtifact@1
+
+- task: PublishBuildArtifacts@1
   inputs:
-    targetPath: 'docker-compose.yml'
-    artifact: 'docker-compose.yml'
-    publishLocation: 'filepath'
-    fileSharePath: 'docker-compose.yml'
+    PathtoPublish: '$(Build.ArtifactStagingDirectory)'
+    ArtifactName: 'docker-compose.yml'
+    publishLocation: 'Container'
