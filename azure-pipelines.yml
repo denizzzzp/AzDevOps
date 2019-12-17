@@ -35,7 +35,7 @@ steps:
   displayName: create file docker-compose.yml
   inputs:
     script: |
-      cat <<EOF >docker-compose.yml
+      cat <<EOF >/home/vsts/work/1/a/docker-compose.yml
       version: "3"
       services:
         identidock:
@@ -60,7 +60,7 @@ steps:
 - task: CmdLine@2
   displayName: Print file docker-compose.yml
   inputs:
-    script: 'cat docker-compose.yml'
+    script: 'cat /home/vsts/work/1/a/docker-compose.yml'
 
 
 - task: PublishBuildArtifacts@1
