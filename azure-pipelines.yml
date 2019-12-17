@@ -10,7 +10,7 @@ pool:
   vmImage: 'ubuntu-latest'
 
 variables:
-  imageName: 'denizzzzp/app_fabric'
+  imageName: 'denizzzzp/appfabric'
 
 steps:
 
@@ -39,8 +39,7 @@ steps:
       version: "3"
       services:
         identidock:
-          image: denizzzzp/app_fabric:$(Build.BuildId)
-          pull: true
+          image: denizzzzp/appfabric:$(Build.BuildId)
           ports:
           - "80:5000"
           environment:
