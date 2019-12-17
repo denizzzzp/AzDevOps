@@ -10,7 +10,7 @@ pool:
   vmImage: 'ubuntu-latest'
 
 variables:
-  imageName: 'denizzzzp/app-fabric'
+  imageName: 'denizzzzp/app_fabric'
 
 steps:
 
@@ -39,7 +39,7 @@ steps:
       version: "3"
       services:
         identidock:
-          image: denizzzzp/app-fabric:$(Build.BuildId)
+          image: denizzzzp/app_fabric:$(Build.BuildId)
           pull: true
           ports:
           - "80:5000"
@@ -66,5 +66,5 @@ steps:
 - task: PublishBuildArtifacts@1
   inputs:
     PathtoPublish: '$(Build.ArtifactStagingDirectory)'
-    ArtifactName: 'docker-compose.yml'
+    ArtifactName: 'YML'
     publishLocation: 'Container'
